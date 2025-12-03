@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "Alef";
+    src: local("Alef"),
+     url("./HebrewCalendar/Fonts/Alef/Alef-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Alef bold";
+    src: local("Alef bold"),
+     url("./HebrewCalendar/Fonts/Alef/Alef-Bold.ttf") format("truetype");
+    font-weight: 400;
+}
+
+.calWrapper {
+    width: 40rem;
+    
+    .controllers {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+       
+    .hebTitle {
+        direction: rtl;
+        font-family: 'Alef';
+    }
+        
+    table {
+        border-collapse: collapse;
+        border: 1px solid;
+        empty-cells: show;
+        width: 100%;
+
+        col {
+            width: 14%;
+        }
+
+        tr.dataTR {
+            height: 4.0rem;
+        }
+
+        td, th {
+            border: 1px solid;
+        }
+
+        td {
+            vertical-align: top;
+            box-sizing: border-box;
+            padding: 0.2rem;
+            
+            .buttonDateWrapper {
+                cursor: pointer;
+                font-family: 'Alef';
+                font-size: 0.8rem;
+                height: 3.6rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .date {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    font-family: 'Alef bold';
+                    color: #795548;
+                }
+    
+                .desc {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: right;
+
+                    & > div {
+                        line-height: 1.0em;
+                        padding-bottom: 0.2em;
+                    }
+                }
+
+                .descEng {
+                    text-align: left;
+                }
+            }
+
+            
+        }
+
+        .specialEvent {
+            background-color:yellow;
+        }
+
+        .saturday {
+            background-color:lightgrey;
+        }
+
+        .selectedDate {
+            background-color:aquamarine;
+        }
+    }
+}
+
+.calWrapperEng {
+    width: 60rem;
+}
+
+.calWrapperSmall {
+    width: 20rem;
+
+    table {
+        tr.dataTR {
+            height:fit-content;
+        }
+
+        td {
+            .buttonDateWrapper {
+                height: 2.4rem;
+            }
+        }
+
+        .date {
+            flex-direction: column-reverse;
+
+            &>div:first-child {
+                text-align: right;
+            }
+
+            &>div:last-child {
+                text-align: left;
+            }
+        }
+    }
+
+    
+}
