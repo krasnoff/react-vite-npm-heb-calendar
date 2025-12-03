@@ -17,10 +17,12 @@ const copyFontsPlugin = () => {
     name: 'copy-fonts',
     writeBundle() {
       try {
-        // Create fonts directory in dist
-        const distFontsDir = path.resolve(__dirname, 'dist/fonts');
+        // Create Fonts directory in existing HebrewCalendar structure
+        const distHebCalendarDir = path.resolve(__dirname, 'dist/components/heb-calendar/HebrewCalendar');
+        const distFontsDir = path.resolve(distHebCalendarDir, 'Fonts');
         const distAlefDir = path.resolve(distFontsDir, 'Alef');
         
+        mkdirSync(distHebCalendarDir, { recursive: true });
         mkdirSync(distFontsDir, { recursive: true });
         mkdirSync(distAlefDir, { recursive: true });
         
@@ -54,6 +56,13 @@ export default defineConfig({
       name: 'MyReactLib',          // only used for UMD, but fine to keep
       formats: ['es'],             // 👈 ESM ONLY
       fileName: () => 'index.js',  // output: dist/index.js as ESM
+    },
+    assetsInlineLimit: (filePath) => {
+      // Don't inline font files - keep them as separate files
+      if (filePath.endsWith('.ttf') || filePath.endsWith('.woff') || filePath.endsWith('.woff2')) {
+        return false;
+      }
+      return undefined; // Use default behavior (4096 bytes threshold)
     },
     rollupOptions: {
       // don't bundle React – treat as peer dep

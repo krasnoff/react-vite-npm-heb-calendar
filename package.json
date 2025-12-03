@@ -15,8 +15,8 @@
     },
     "./styles": "./dist/react-vite-npm-template.css",
     "./dist/react-vite-npm-template.css": "./dist/react-vite-npm-template.css",
-    "./fonts/*": "./dist/fonts/*",
-    "./fonts/Alef/*": "./dist/fonts/Alef/*"
+    "./components/heb-calendar/HebrewCalendar/Fonts/*": "./dist/components/heb-calendar/HebrewCalendar/Fonts/*",
+    "./components/heb-calendar/HebrewCalendar/Fonts/Alef/*": "./dist/components/heb-calendar/HebrewCalendar/Fonts/Alef/*"
   },
   "files": [
     "dist"
