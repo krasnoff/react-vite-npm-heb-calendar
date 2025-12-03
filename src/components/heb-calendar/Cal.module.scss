@@ -37,7 +37,7 @@
         }
 
         tr.dataTR {
-            height: 4.0rem;
+            height: 5.5rem;
         }
 
         td, th {
@@ -48,12 +48,14 @@
             vertical-align: top;
             box-sizing: border-box;
             padding: 0.2rem;
+            padding-top: 0.0rem;
+            padding-bottom: 0.0rem;
             
             .buttonDateWrapper {
                 cursor: pointer;
                 font-family: 'Alef';
                 font-size: 0.8rem;
-                height: 3.6rem;
+                height: 5.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -90,7 +92,7 @@
         }
 
         .saturday {
-            background-color:lightgrey;
+            background-color: #dad8d7;
         }
 
         .selectedDate {

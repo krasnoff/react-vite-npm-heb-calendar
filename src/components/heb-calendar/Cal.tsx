@@ -1,4 +1,4 @@
-import { type ChangeEvent, type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import { type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { Language } from "./HebrewCalendar/enums/language";
 import { WeekdaysEnglish } from "./HebrewCalendar/enums/WeekDaysEnglish";
 import { WeekdaysHebrew } from "./HebrewCalendar/enums/weekdaysHebrew";
@@ -295,7 +295,7 @@ export function Cal(props: CalProps) {
         return '';
     }
 
-    const handleSelectedYearChange = (evt: ChangeEvent) => {
+    const handleSelectedYearChange = () => {
         let selectedYear = parseInt(selectedYearContainer.current?.value as string);
         if (isNaN(selectedYear)) {
             selectedYear = 1;
@@ -303,7 +303,7 @@ export function Cal(props: CalProps) {
         setSelectedYear(selectedYear);
     }
 
-    const handleSelectedMonthChange = (evt: ChangeEvent) => {
+    const handleSelectedMonthChange = () => {
         setSelectedMonth(parseInt(selectedMonthContainer.current?.value as string));
     }
 
@@ -336,16 +336,18 @@ export function Cal(props: CalProps) {
                         }
                       }}
                     value={selectedYear}
-                    onChange={(evt: ChangeEvent) => handleSelectedYearChange(evt)}
+                    onChange={() => handleSelectedYearChange()}
                     ref={selectedYearContainer}
                     style={props.customInputText}
+                    aria-label="Year Input"
                     >
                     </input></div>
                 <div><select 
                             ref={selectedMonthContainer}
                             value={selectedMonth}
-                            onChange={(evt: ChangeEvent) => handleSelectedMonthChange(evt)}
-                            style={props.customSelect}>
+                            onChange={() => handleSelectedMonthChange()}
+                            style={props.customSelect}
+                            aria-label="Month Select">
                     <option value="0" style={props.customSelectOption}>January</option>
                     <option value="1" style={props.customSelectOption}>February</option>
                     <option value="2" style={props.customSelectOption}>March</option>
