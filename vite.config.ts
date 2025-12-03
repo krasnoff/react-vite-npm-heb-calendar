@@ -7,11 +7,46 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
+import { copyFileSync, mkdirSync } from 'node:fs';
+import { globSync } from 'glob';
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+
+// Plugin to copy fonts to dist directory
+const copyFontsPlugin = () => {
+  return {
+    name: 'copy-fonts',
+    writeBundle() {
+      try {
+        // Create fonts directory in dist
+        const distFontsDir = path.resolve(__dirname, 'dist/fonts');
+        const distAlefDir = path.resolve(distFontsDir, 'Alef');
+        
+        mkdirSync(distFontsDir, { recursive: true });
+        mkdirSync(distAlefDir, { recursive: true });
+        
+        // Copy font files
+        const fontFiles = globSync('src/components/heb-calendar/HebrewCalendar/Fonts/Alef/**/*', {
+          cwd: __dirname,
+          nodir: true
+        });
+        
+        fontFiles.forEach(file => {
+          const srcPath = path.resolve(__dirname, file);
+          const fileName = path.basename(file);
+          const destPath = path.resolve(distAlefDir, fileName);
+          copyFileSync(srcPath, destPath);
+          console.log(`Copied font: ${fileName}`);
+        });
+      } catch (error) {
+        console.error('Error copying fonts:', error);
+      }
+    }
+  };
+};
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), copyFontsPlugin()],
   publicDir: false, // Disable automatic copying of public directory
   build: {
     lib: {

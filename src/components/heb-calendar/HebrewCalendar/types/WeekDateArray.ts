@@ -1,3 +1,3 @@
-import { DayObj } from '../interfaces/dayObj'
+import type { DayObj } from '../interfaces/dayObj'
 
 export type WeekDateArray = Array<DayObj | undefined>;

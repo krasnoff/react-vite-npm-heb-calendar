@@ -102,9 +102,41 @@ Example of custom styling:
 | `className` | `string` | - | Additional CSS classes |
 | `...props` | `React.ButtonHTMLAttributes<HTMLButtonElement>` | - | All standard button props |
 
+## Font Assets
+
+This package includes Hebrew fonts (Alef font family) that are automatically included when you import the styles. The fonts are available at:
+
+```bash
+# Font files are automatically copied to:
+node_modules/react-vite-npm-template/dist/fonts/Alef/
+├── Alef-Regular.ttf
+├── Alef-Bold.ttf
+└── OFL.txt
+```
+
+### Using Fonts in Custom CSS
+
+If you need to use the Hebrew fonts in your own components, you can reference them directly:
+
+```css
+/* Custom component using the Hebrew fonts */
+.my-hebrew-text {
+  font-family: 'Alef', Arial, sans-serif;
+}
+
+.my-bold-hebrew {
+  font-family: 'Alef bold', Arial, sans-serif;
+}
+```
+
+### Font Paths in Build Tools
+
+The fonts use relative paths (`./fonts/Alef/...`) from the CSS file location. Most bundlers (Vite, Webpack, etc.) will automatically handle these paths correctly. If you encounter issues, ensure your bundler is configured to handle font assets.
+
 ## Important Notes
 
 - **Always import the styles**: Don't forget to import `'react-vite-npm-template/styles'`
 - **CSS Modules**: The component uses CSS modules internally, so class names are scoped
 - **Extensibility**: The component accepts all standard HTML button attributes
 - **TypeScript**: Full TypeScript support with exported types
+- **Hebrew Fonts**: Alef font family is included and ready to use for Hebrew text

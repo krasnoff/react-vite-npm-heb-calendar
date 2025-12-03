@@ -11,26 +11,42 @@ npm i hebrewcalendar
 ```
 
 Here is how you implement the component in your react code
-```
+```tsx
 import './App.css';
 import Cal from 'hebrewcalendar/Cal';
 import { DayObj } from 'hebrewcalendar/HebrewCalendar/interfaces/dayObj';
 import { Language } from 'hebrewcalendar/HebrewCalendar/enums/language'; 
 
 function App() {
-  const selectDateHandler = (selectedDate) => {
+  const selectDateHandler = (selectedDate: DayObj) => {
     console.log('selectDateHandler', selectedDate);
   }
 
   return (
     <div className="App">
-      <div className="celendarContainer"><Cal onSelectDate={(selectedDate) => selectDateHandler(selectedDate)} language={Language.Hebrew}></Cal></div>
+      <div className="celendarContainer">
+        <Cal 
+          onSelectDate={(selectedDate) => selectDateHandler(selectedDate)} 
+          language={Language.Hebrew}
+        />
+      </div>
     </div>
   );
 }
 
 export default App;
 ```
+
+## Font Support
+
+The Hebrew calendar component includes the Alef Hebrew font family for proper Hebrew text display. The fonts are automatically included when you install the package and import the styles.
+
+### Font Files Included:
+- `Alef-Regular.ttf` - Regular weight for Hebrew text
+- `Alef-Bold.ttf` - Bold weight for Hebrew text
+- `OFL.txt` - Open Font License
+
+The fonts are automatically loaded via CSS `@font-face` declarations and applied to Hebrew text elements. No additional configuration is required - simply import the component styles and the fonts will be available.
 
 This new component has the following attributes:
 1. `onSelectDate` - This is a mandatory attributes which is activated every time the user chooses a specific date. Its argument is a `DayObj` interface which looks like this:
