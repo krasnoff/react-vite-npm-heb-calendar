@@ -11,7 +11,6 @@ A fully-featured React Hebrew calendar component that displays both Gregorian an
 - 📱 Responsive design with small format option
 - 🕯️ Jewish holidays and special events integration
 - ♿ Accessibility support with ARIA labels
-- 🎭 Built-in Storybook documentation
 
 ## Installation
 
@@ -309,9 +308,6 @@ npm install
 
 # Start development server
 npm run dev
-
-# Run Storybook
-npm run storybook
 
 # Build for production
 npm run build

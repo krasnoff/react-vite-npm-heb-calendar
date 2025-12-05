@@ -11,10 +11,10 @@ import { copyFileSync, mkdirSync } from 'node:fs';
 import { globSync } from 'glob';
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
-// Plugin to copy fonts to dist directory
-const copyFontsPlugin = () => {
+// Plugin to copy fonts and README to dist directory
+const copyAssetsPlugin = () => {
   return {
-    name: 'copy-fonts',
+    name: 'copy-assets',
     writeBundle() {
       try {
         // Create Fonts directory in existing HebrewCalendar structure
@@ -39,8 +39,15 @@ const copyFontsPlugin = () => {
           copyFileSync(srcPath, destPath);
           console.log(`Copied font: ${fileName}`);
         });
+
+        // Copy README file to dist root
+        const readmeSrc = path.resolve(__dirname, 'README.md');
+        const readmeDest = path.resolve(__dirname, 'dist/README.md');
+        copyFileSync(readmeSrc, readmeDest);
+        console.log('Copied README.md to dist directory');
+        
       } catch (error) {
-        console.error('Error copying fonts:', error);
+        console.error('Error copying assets:', error);
       }
     }
   };
@@ -48,7 +55,7 @@ const copyFontsPlugin = () => {
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react(), copyFontsPlugin()],
+  plugins: [react(), copyAssetsPlugin()],
   publicDir: false, // Disable automatic copying of public directory
   build: {
     lib: {
