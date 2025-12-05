@@ -38,8 +38,8 @@ pnpm add @krasnoff/react-vite-heb-calendar
 
 ```tsx
 import React from 'react';
-import { Cal, Language, Format, type DayObj } from 'react-vite-heb-calendar';
-import 'react-vite-heb-calendar/styles';
+import '@krasnoff/react-vite-heb-calendar/dist/react-vite-heb-calendar.css';
+import { Cal, Language, type DayObj } from '@krasnoff/react-vite-heb-calendar'
 
 function App() {
   const handleDateSelect = (selectedDate: DayObj) => {
@@ -61,8 +61,8 @@ export default App;
 
 ```tsx
 import React from 'react';
-import { Cal, Language, Format, type DayObj } from 'react-vite-heb-calendar';
-import 'react-vite-heb-calendar/styles';
+import '@krasnoff/react-vite-heb-calendar/dist/react-vite-heb-calendar.css';
+import { Cal, Language, type DayObj } from '@krasnoff/react-vite-heb-calendar'
 
 function CustomCalendar() {
   const handleDateSelect = (selectedDate: DayObj) => {
@@ -106,8 +106,8 @@ function CustomCalendar() {
 
 ```tsx
 import React from 'react';
-import { Cal, Language, Format, type DayObj } from 'react-vite-heb-calendar';
-import 'react-vite-heb-calendar/styles';
+import '@krasnoff/react-vite-heb-calendar/dist/react-vite-heb-calendar.css';
+import { Cal, Language, type DayObj } from '@krasnoff/react-vite-heb-calendar'
 
 function EnglishCalendar() {
   const handleDateSelect = (selectedDate: DayObj) => {
@@ -203,7 +203,7 @@ enum Format {
 ### Working with Hebrew Dates
 
 ```tsx
-import { Cal, type DayObj } from 'react-vite-heb-calendar';
+import { Cal, type DayObj } from '@krasnoff/react-vite-heb-calendar';
 import { gematriya } from '@hebcal/core';
 
 function HebrewDateHandler() {
@@ -237,7 +237,8 @@ function HebrewDateHandler() {
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { Cal, Format, type DayObj } from 'react-vite-heb-calendar';
+import { Cal, Format, type DayObj } from '@krasnoff/react-vite-heb-calendar';
+import '@krasnoff/react-vite-heb-calendar/dist/react-vite-heb-calendar.css';
 
 function ResponsiveCalendar() {
   const [format, setFormat] = useState(Format.LARGE);
