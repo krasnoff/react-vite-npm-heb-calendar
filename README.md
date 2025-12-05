@@ -17,19 +17,19 @@ A fully-featured React Hebrew calendar component that displays both Gregorian an
 ### NPM
 
 ```bash
-npm install react-vite-npm-template
+npm i @krasnoff/react-vite-heb-calendar
 ```
 
 ### Yarn
 
 ```bash
-yarn add react-vite-npm-template
+yarn add @krasnoff/react-vite-heb-calendar
 ```
 
 ### PNPM
 
 ```bash
-pnpm add react-vite-npm-template
+pnpm add @krasnoff/react-vite-heb-calendar
 ```
 
 ## Basic Usage
@@ -38,8 +38,8 @@ pnpm add react-vite-npm-template
 
 ```tsx
 import React from 'react';
-import { Cal, Language, Format, type DayObj } from 'react-vite-npm-template';
-import 'react-vite-npm-template/styles';
+import { Cal, Language, Format, type DayObj } from 'react-vite-heb-calendar';
+import 'react-vite-heb-calendar/styles';
 
 function App() {
   const handleDateSelect = (selectedDate: DayObj) => {
@@ -61,8 +61,8 @@ export default App;
 
 ```tsx
 import React from 'react';
-import { Cal, Language, Format, type DayObj } from 'react-vite-npm-template';
-import 'react-vite-npm-template/styles';
+import { Cal, Language, Format, type DayObj } from 'react-vite-heb-calendar';
+import 'react-vite-heb-calendar/styles';
 
 function CustomCalendar() {
   const handleDateSelect = (selectedDate: DayObj) => {
@@ -106,8 +106,8 @@ function CustomCalendar() {
 
 ```tsx
 import React from 'react';
-import { Cal, Language, Format, type DayObj } from 'react-vite-npm-template';
-import 'react-vite-npm-template/styles';
+import { Cal, Language, Format, type DayObj } from 'react-vite-heb-calendar';
+import 'react-vite-heb-calendar/styles';
 
 function EnglishCalendar() {
   const handleDateSelect = (selectedDate: DayObj) => {
@@ -203,7 +203,7 @@ enum Format {
 ### Working with Hebrew Dates
 
 ```tsx
-import { Cal, type DayObj } from 'react-vite-npm-template';
+import { Cal, type DayObj } from 'react-vite-heb-calendar';
 import { gematriya } from '@hebcal/core';
 
 function HebrewDateHandler() {
@@ -237,7 +237,7 @@ function HebrewDateHandler() {
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { Cal, Format, type DayObj } from 'react-vite-npm-template';
+import { Cal, Format, type DayObj } from 'react-vite-heb-calendar';
 
 function ResponsiveCalendar() {
   const [format, setFormat] = useState(Format.LARGE);
