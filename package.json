@@ -1,7 +1,7 @@
 {
-  "name": "react-vite-npm-template",
+  "name": "@krasnoff/react-vite-npm-template",
   "private": false,
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "A React Vite component library template with Storybook, Vitest, and Playwright setup. for developing components to be destributed in NPM registry.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -34,7 +34,7 @@
     "vite",
     "component-library"
   ],
-  "author": "",
+  "author": "Kobi Krasnoff",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=18",
