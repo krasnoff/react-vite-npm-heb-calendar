@@ -204,6 +204,7 @@ enum Format {
 
 ```tsx
 import { Cal, type DayObj } from '@krasnoff/react-vite-heb-calendar';
+import '@krasnoff/react-vite-heb-calendar/dist/react-vite-heb-calendar.css';
 import { gematriya } from '@hebcal/core';
 
 function HebrewDateHandler() {

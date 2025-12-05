@@ -1,7 +1,7 @@
 {
   "name": "@krasnoff/react-vite-heb-calendar",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React Hebrew calendar component displaying both Gregorian and Hebrew dates with Jewish holidays and events support.",
   "main": "dist/index.js",
   "module": "dist/index.js",
