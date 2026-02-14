@@ -158,13 +158,13 @@ export function Cal(props: CalProps) {
                 </colgroup>
                 <thead>
                     <tr style={props.customTr}>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[0] : ''}</th>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[1] : ''}</th>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[2] : ''}</th>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[3] : ''}</th>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[4] : ''}</th>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[5] : ''}</th>
-                        <th style={props.customTh}>{SelectedEnum ? SelectedEnum[6] : ''}</th>
+                        <th style={props.customTh} aria-label="sunday">{SelectedEnum ? SelectedEnum[0] : ''}</th>
+                        <th style={props.customTh} aria-label="monday">{SelectedEnum ? SelectedEnum[1] : ''}</th>
+                        <th style={props.customTh} aria-label="tuesday">{SelectedEnum ? SelectedEnum[2] : ''}</th>
+                        <th style={props.customTh} aria-label="wednesday">{SelectedEnum ? SelectedEnum[3] : ''}</th>
+                        <th style={props.customTh} aria-label="thursday">{SelectedEnum ? SelectedEnum[4] : ''}</th>
+                        <th style={props.customTh} aria-label="friday">{SelectedEnum ? SelectedEnum[5] : ''}</th>
+                        <th style={props.customTh} aria-label="saturday">{SelectedEnum ? SelectedEnum[6] : ''}</th>
                     </tr>
                 </thead>
                 {MonthDates ? <tbody>
@@ -178,7 +178,7 @@ export function Cal(props: CalProps) {
                                 ...(el?.EventObj?.length && el?.EventObj?.length > 0 ? props.customSpecialEvent : null), 
                                 ...(el?.DayOfWeek === 6 ? props.customSaturday : null), 
                                 ...(el?.ButtonDate === selectedDate?.ButtonDate ? props.customSelectedDate : null)
-                            }}>
+                            }} title={props.format === Format.SMALL ? el?.EventObj?.map((el2) => el2.render(props.language !== undefined ? props.language : Language.English)).join('\n') : undefined}>
                             {el ?
                                 <div tabIndex={0} onKeyDown={(evt) => handleKeyDown(evt, el)} onClick={() => handleClick(el)} className={styles.buttonDateWrapper} style={props.customButtonDateWrapper}>
                                     <div className={styles.date} style={props.customDate}>

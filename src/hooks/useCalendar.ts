@@ -56,7 +56,7 @@ function useCalendar(selectedDateArg?: Date, languageArg?: string, onSelectDateA
             candlelighting: false,
             location: Location.lookup('Tel Aviv'),
             sedrot: true,
-            omer: true,
+            omer: false,
         };
         let events: Array<Event> = HebrewCalendar.calendar(options);
             
