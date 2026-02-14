@@ -42,3 +42,16 @@ export const Secondary: Story = {
     format: Format.SMALL
   },
 };
+
+export const English: Story = {
+  args: {
+    language: Language.English
+  },
+};
+
+export const EnglishSmall: Story = {
+  args: {
+    language: Language.English,
+    format: Format.SMALL
+  },
+};
