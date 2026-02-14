@@ -1,9 +1,9 @@
 import { type CSSProperties } from "react";
-import { Language } from "./HebrewCalendar/enums/language";
-import type { DayObj } from "./HebrewCalendar/interfaces/dayObj";
+import { Language } from "../../enums/language";
+import type { DayObj } from "../../interfaces/dayObj";
 import styles from './Cal.module.scss';
 import {gematriya} from '@hebcal/core';
-import { Format } from "./HebrewCalendar/enums/format";
+import { Format } from "../../enums/format";
 import { useCalendar } from "../../hooks/useCalendar";
 
 export interface CalProps {

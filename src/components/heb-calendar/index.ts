@@ -1,10 +1,10 @@
 export * from './Cal';
 export type { CalProps } from './Cal';
-export { Format } from './HebrewCalendar/enums/format';
-export { Language } from './HebrewCalendar/enums/language';
-export { MonthsArr } from './HebrewCalendar/enums/months';
-export { WeekdaysHebrew } from './HebrewCalendar/enums/weekdaysHebrew';
-export { WeekdaysEnglish } from './HebrewCalendar/enums/WeekDaysEnglish';
-export type { Coordinates } from './HebrewCalendar/interfaces/coordinates';
-export type { DayObj } from './HebrewCalendar/interfaces/dayObj';
-export type { WeekDateArray } from './HebrewCalendar/types/WeekDateArray';
+export { Format } from '../../enums/format';
+export { Language } from '../../enums/language';
+export { MonthsArr } from '../../enums/months';
+export { WeekdaysHebrew } from '../../enums/weekdaysHebrew';
+export { WeekdaysEnglish } from '../../enums/WeekDaysEnglish';
+export type { Coordinates } from '../../interfaces/coordinates';
+export type { DayObj } from '../../interfaces/dayObj';
+export type { WeekDateArray } from '../../types/WeekDateArray';

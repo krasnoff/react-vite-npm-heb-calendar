@@ -1,0 +1,1 @@
+export type { WeekDateArray } from './WeekDateArray';

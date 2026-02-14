@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { Cal } from './Cal';
-import { Language } from './HebrewCalendar/enums/language';
+import { Language } from '../../enums/language';
 import { Format } from '../..';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
