@@ -9,5 +9,7 @@ export type { Coordinates } from './components/heb-calendar/HebrewCalendar/inter
 export type{ DayObj } from './components/heb-calendar/HebrewCalendar/interfaces/dayObj';
 export type { WeekDateArray } from './components/heb-calendar/HebrewCalendar/types/WeekDateArray';
 
+export { useCalendar } from './hooks/useCalendar';
+
 // CSS - consumers should import this separately
 // import 'react-vite-npm-template/styles';
