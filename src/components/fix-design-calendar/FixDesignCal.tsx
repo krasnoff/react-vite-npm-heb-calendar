@@ -85,7 +85,11 @@ export function FixedDesignCal(props: CalProps) {
                 </thead>
                 {MonthDates ? <tbody>
                     { MonthDates.map((el, index) => <tr key={index}>
-                        {el.map((el, index) => <td key={index} title={props.format === Format.SMALL ? el?.EventObj?.map((el2) => el2.render(props.language !== undefined ? props.language : Language.English)).join('\n') : undefined}>
+                        {el.map((el, index) => <td  className={[
+                                                        el?.ButtonDate === selectedDate?.ButtonDate ? undefined : undefined,
+                                                        el?.EventObj?.length && el?.EventObj?.length > 0 ? undefined : undefined,
+                                                        el?.DayOfWeek === 6 ? undefined : undefined,
+                                                    ].join(' ')} key={index} title={props.format === Format.SMALL ? el?.EventObj?.map((el2) => el2.render(props.language !== undefined ? props.language : Language.English)).join('\n') : undefined}>
                             {el ?
                                 <div tabIndex={0} onKeyDown={(evt) => handleKeyDown(evt, el)} onClick={() => handleClick(el)}>
                                     <div>
