@@ -1,6 +1,5 @@
 export * from './Cal';
 export type { CalProps } from './Cal';
-export { Format } from '../../enums/format';
 export { Language } from '../../enums/language';
 export { MonthsArr } from '../../enums/months';
 export { WeekdaysHebrew } from '../../enums/weekdaysHebrew';
