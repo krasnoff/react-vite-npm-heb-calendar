@@ -7,8 +7,8 @@ function useCalendar(selectedDateArg?: Date, languageArg?: string, onSelectDateA
     const [MonthDates, setMonthDates] = useState<Array<WeekDateArray>>([]);
     const [FirstDayMonth, setFirstDayMonth] = useState<DayObj>();
     const [LastDayMonth, setLastDayMonth] = useState<DayObj>();
-    const [selectedYear, setSelectedYear] = useState<number>(selectedDateArg ? selectedDateArg.getFullYear() : (new Date()).getFullYear());
-    const [selectedMonth, setSelectedMonth] = useState<number>(selectedDateArg ? selectedDateArg.getMonth() : (new Date()).getMonth());
+    const [selectedYear, setSelectedYear] = useState<number>(selectedDateArg ? (new Date(selectedDateArg)).getFullYear() : (new Date()).getFullYear());
+    const [selectedMonth, setSelectedMonth] = useState<number>(selectedDateArg ? (new Date(selectedDateArg)).getMonth() : (new Date()).getMonth());
     const selectedYearContainer = useRef<HTMLInputElement>(null);
     const selectedMonthContainer = useRef<HTMLSelectElement>(null);
     const [selectedDate, setSelectedDate] = useState<DayObj>();

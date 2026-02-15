@@ -55,3 +55,9 @@ export const SmallEnglish: Story = {
     format: Format.SMALL
   },
 };
+
+export const CustomSelectedDate: Story = {
+  args: {
+    selectedDate: new Date(2024, 4, 20) // May 20, 2024
+  },
+};
