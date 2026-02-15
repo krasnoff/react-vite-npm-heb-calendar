@@ -3,6 +3,7 @@ import type { DayObj } from "../../interfaces/dayObj";
 import {gematriya} from '@hebcal/core';
 import { Format } from "../../enums/format";
 import { useCalendar } from "../../hooks/useCalendar";
+import { Template } from "@krasnoff/react-shadow-dom-component";
 
 export interface CalProps {
     /**
@@ -29,7 +30,7 @@ export function FixedDesignCal(props: CalProps) {
     const {selectedYear ,selectedMonth, SelectedEnum, MonthDates, FirstDayMonth, LastDayMonth, selectedDate, getHebMonthName, handleKeyDown, handleClick, selectedYearContainer, selectedMonthContainer, handleSelectedYearChange, handleSelectedMonthChange} = useCalendar(props.selectedDate, props.language, props.onSelectDate);
 
     return (
-        <div>
+        <Template shadowrootmode="open">
             <div>
                 <div><input 
                     type="text" 
@@ -85,11 +86,7 @@ export function FixedDesignCal(props: CalProps) {
                 </thead>
                 {MonthDates ? <tbody>
                     { MonthDates.map((el, index) => <tr key={index}>
-                        {el.map((el, index) => <td  className={[
-                                                        el?.ButtonDate === selectedDate?.ButtonDate ? undefined : undefined,
-                                                        el?.EventObj?.length && el?.EventObj?.length > 0 ? undefined : undefined,
-                                                        el?.DayOfWeek === 6 ? undefined : undefined,
-                                                    ].join(' ')} key={index} title={props.format === Format.SMALL ? el?.EventObj?.map((el2) => el2.render(props.language !== undefined ? props.language : Language.English)).join('\n') : undefined}>
+                        {el.map((el, index) => <td  style={el?.ButtonDate === selectedDate?.ButtonDate ? {backgroundColor: 'yellow'} : undefined} key={index} title={props.format === Format.SMALL ? el?.EventObj?.map((el2) => el2.render(props.language !== undefined ? props.language : Language.English)).join('\n') : undefined}>
                             {el ?
                                 <div tabIndex={0} onKeyDown={(evt) => handleKeyDown(evt, el)} onClick={() => handleClick(el)}>
                                     <div>
@@ -103,7 +100,7 @@ export function FixedDesignCal(props: CalProps) {
                     </tr>) }
                 </tbody> : null}
             </table>
-        </div>
+        </Template>
     );
 }
 

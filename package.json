@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@hebcal/core": "^6.0.6",
+    "@krasnoff/react-shadow-dom-component": "^1.0.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
