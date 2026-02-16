@@ -29,9 +29,65 @@ export interface CalProps {
 export function FixedDesignCal(props: CalProps) {
     const {selectedYear ,selectedMonth, SelectedEnum, MonthDates, FirstDayMonth, LastDayMonth, selectedDate, getHebMonthName, handleKeyDown, handleClick, selectedYearContainer, selectedMonthContainer, handleSelectedYearChange, handleSelectedMonthChange} = useCalendar(props.selectedDate, props.language, props.onSelectDate);
 
+    // Create a CSS stylesheet for the Shadow DOM
+    const stylesheet = new CSSStyleSheet();
+    stylesheet.replaceSync(`
+        :host {
+            display: block;
+            max-width: 640px;
+            margin: 0 auto;
+
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-direction: row-reverse;
+        }
+        .title {
+            font-size: 1.0rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        .table {
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .table col {
+            width: calc(100% / 7);
+        }
+        .table th {
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .table td {
+            border: 1px solid #ddd;
+            font-size: 0.8rem;
+        }
+        .cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: space-between;
+        }
+    `);
+
     return (
-        <Template shadowrootmode="open">
-            <div>
+        <Template shadowrootmode="open" sheet={stylesheet} shadowrootdelegatesfocus={true}>
+            <div className="container">
+            <div className="header">
                 <div><input 
                     type="text" 
                     maxLength={4}
@@ -65,11 +121,11 @@ export function FixedDesignCal(props: CalProps) {
                     <option value="11">December</option>
                 </select></div>
             </div>
-            <div>
+            <div className="title">
                 {FirstDayMonth?.HebrewDate ? <span>{getHebMonthName(FirstDayMonth?.HebrewDate)} {gematriya((FirstDayMonth as DayObj).HebrewDate.getFullYear())} -</span> : null}
                 {LastDayMonth?.HebrewDate ? <span>{getHebMonthName(LastDayMonth?.HebrewDate)} {gematriya((LastDayMonth as DayObj).HebrewDate.getFullYear())}</span> : null}
             </div>
-            <table>
+            <table className="table">
                 <colgroup>
                     <col span={7} />
                 </colgroup>
@@ -88,7 +144,7 @@ export function FixedDesignCal(props: CalProps) {
                     { MonthDates.map((el, index) => <tr key={index}>
                         {el.map((el, index) => <td  style={el?.ButtonDate === selectedDate?.ButtonDate ? {backgroundColor: 'yellow'} : undefined} key={index} title={props.format === Format.SMALL ? el?.EventObj?.map((el2) => el2.render(props.language !== undefined ? props.language : Language.English)).join('\n') : undefined}>
                             {el ?
-                                <div tabIndex={0} onKeyDown={(evt) => handleKeyDown(evt, el)} onClick={() => handleClick(el)}>
+                                <div className="cell" tabIndex={0} onKeyDown={(evt) => handleKeyDown(evt, el)} onClick={() => handleClick(el)}>
                                     <div>
                                         <div>{gematriya(el.HebrewDate.getDate())}</div>
                                         <div>{el?.ButtonDate.getDate()}</div>
@@ -100,6 +156,7 @@ export function FixedDesignCal(props: CalProps) {
                     </tr>) }
                 </tbody> : null}
             </table>
+            </div>
         </Template>
     );
 }
