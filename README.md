@@ -7,6 +7,7 @@ A fully-featured React Hebrew calendar component that displays both Gregorian an
 - 📅 Dual calendar display (Gregorian & Hebrew dates)
 - 🎯 Hebrew date selection with callback support
 - 🎨 Customizable styling with CSS properties
+- 🧩 Shadow DOM calendar variant with isolated styles via `FixedDesignCal`
 - 🌍 Multi-language support (Hebrew/English)
 - 📱 Responsive design with small format option
 - 🕯️ Jewish holidays and special events integration
@@ -123,6 +124,21 @@ function EnglishCalendar() {
   );
 }
 ```
+
+## FixedDesignCal
+
+The project also includes `FixedDesignCal`, a calendar component rendered inside a Shadow DOM. This version is useful when you want the calendar styles to stay encapsulated and avoid collisions with global CSS from the host application.
+
+### Why use FixedDesignCal
+
+- Renders inside a Shadow DOM boundary
+- Keeps the calendar layout and styles isolated from page-level CSS
+- Preserves the same core calendar behavior, including date selection, keyboard interaction, and Hebrew event rendering
+- Useful for embedding the calendar inside design systems, widgets, or third-party pages
+
+### FixedDesignCal behavior
+
+`FixedDesignCal` creates its own stylesheet with `CSSStyleSheet` and attaches it to an open Shadow DOM root. That means the component ships with a fixed internal presentation instead of relying on the external calendar stylesheet used by `Cal`.
 
 ## Props API
 
