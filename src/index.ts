@@ -11,5 +11,7 @@ export type { WeekDateArray } from './types/WeekDateArray';
 
 export { useCalendar } from './hooks/useCalendar';
 
+export { FixedDesignCal } from './components/fix-design-calendar/FixDesignCal';
+
 // CSS - consumers should import this separately
 // import 'react-vite-npm-template/styles';

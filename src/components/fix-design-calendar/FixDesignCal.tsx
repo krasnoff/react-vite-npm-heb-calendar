@@ -37,7 +37,7 @@ export function FixedDesignCal(props: CalProps) {
         :host {
             display: block;
             margin: 0 auto;
-
+            max-width: ${format === Format.LARGE ? '614px' : '382px'};
         }
         .container {
             background: white;
